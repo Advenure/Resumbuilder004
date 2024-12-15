@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <div class="container">
+        <h1>Resume Builder</h1>
+        <form id="resume-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="summary">Summary</label>
+                <textarea id="summary" rows="4" placeholder="Write a brief summary about yourself"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <textarea id="skills" rows="3" placeholder="List your skills"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="experience">Experience</label>
+                <textarea id="experience" rows="4" placeholder="Describe your work experience"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="education">Education</label>
+                <textarea id="education" rows="3" placeholder="Detail your educational background"></textarea>
+            </div>
+            <button type="button" onclick="generateResume()">Generate Resume</button>
+        </form>
+        <div id="resume-output" style="margin-top: 20px; display: none;">
+            <h2>Generated Resume</h2>
+            <div id="resume-content"></div>
+        </div>
+    </div>
+    <script>
+        function generateResume() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const summary = document.getElementById('summary').value;
+            const skills = document.getElementById('skills').value;
+            const experience = document.getElementById('experience').value;
+            const education = document.getElementById('education').value;
+
+            const resumeContent = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Summary:</strong> ${summary}</p>
+                <p><strong>Skills:</strong> ${skills}</p>
+                <p><strong>Experience:</strong> ${experience}</p>
+                <p><strong>Education:</strong> ${education}</p>
+            `;
+
+            document.getElementById('resume-content').innerHTML = resumeContent;
+            document.getElementById('resume-output').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
